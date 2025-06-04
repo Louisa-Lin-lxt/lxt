@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品集 | Portfolio</title>
+    <link rel="stylesheet" href="/lxt/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <base href="/lxt/">
+</head>
+<body>
+    <!-- 语言切换按钮 -->
+    <div class="language-switch">
+        <button class="language-btn active" data-lang="zh">中文</button>
+        <button class="language-btn" data-lang="en">English</button>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <a href="index.html" lang="zh" class="active">我的主页</a>
+                <a href="index.html" lang="en">Home</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#about" lang="zh" class="active">关于我</a><a href="index.html#about" lang="en">About</a></li>
+                <li><a href="portfolio.html" lang="zh" class="active">作品集</a><a href="portfolio.html" lang="en">Portfolio</a></li>
+                <li><a href="index.html#resume" lang="zh" class="active">简历</a><a href="index.html#resume" lang="en">Resume</a></li>
+                <li><a href="index.html#contact" lang="zh" class="active">联系方式</a><a href="index.html#contact" lang="en">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="portfolio-section">
+            <div lang="zh" class="active">
+                <h1>我的作品集</h1>
+                <div class="portfolio-grid">
+                    <!-- 作品项目1 -->
+                    <div class="portfolio-item">
+                        <img src="assets/project1.jpg" alt="项目1">
+                        <div class="portfolio-info">
+                            <h3>项目名称1</h3>
+                            <p>项目描述...</p>
+                            <a href="#" class="project-link">查看详情</a>
+                        </div>
+                    </div>
+
+                    <!-- 作品项目2 -->
+                    <div class="portfolio-item">
+                        <img src="assets/project2.jpg" alt="项目2">
+                        <div class="portfolio-info">
+                            <h3>项目名称2</h3>
+                            <p>项目描述...</p>
+                            <a href="#" class="project-link">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div lang="en">
+                <h1>My Portfolio</h1>
+                <div class="portfolio-grid">
+                    <!-- Project 1 -->
+                    <div class="portfolio-item">
+                        <img src="assets/project1.jpg" alt="Project 1">
+                        <div class="portfolio-info">
+                            <h3>Project Title 1</h3>
+                            <p>Project description...</p>
+                            <a href="#" class="project-link">View Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="portfolio-item">
+                        <img src="assets/project2.jpg" alt="Project 2">
+                        <div class="portfolio-info">
+                            <h3>Project Title 2</h3>
+                            <p>Project description...</p>
+                            <a href="#" class="project-link">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p lang="zh" class="active">&copy; 2024 版权所有</p>
+        <p lang="en">&copy; 2024 All Rights Reserved</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 
