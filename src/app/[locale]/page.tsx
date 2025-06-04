@@ -1,7 +1,6 @@
 import { useTranslations } from 'next-intl';
 import Navigation from '@/components/Navigation';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 
 export default function Home() {
   const t = useTranslations('home');
@@ -13,12 +12,7 @@ export default function Home() {
       <div className="max-w-4xl mx-auto py-20 px-4 sm:px-6 lg:px-8">
         <div className="space-y-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="order-2 md:order-1 space-y-6"
-            >
+            <div className="order-2 md:order-1 space-y-6">
               <div className="space-y-4">
                 <h1 className="text-4xl sm:text-5xl font-bold text-gray-900">
                   {t('title')}
@@ -36,7 +30,6 @@ export default function Home() {
                   {t('intro')}
                 </p>
               </div>
-
               <div className="flex space-x-4 pt-4">
                 <a
                   href="/cv.pdf"
@@ -52,24 +45,14 @@ export default function Home() {
                   {t('contactMe')}
                 </a>
               </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="order-1 md:order-2 flex justify-center"
-            >
+            </div>
+            <div className="order-1 md:order-2 flex justify-center">
               <div className="relative w-64 h-64 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center shadow-lg">
                 <span className="text-blue-400 text-lg">Profile Photo Coming Soon</span>
               </div>
-            </motion.div>
+            </div>
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+          <div
             className="grid grid-cols-1 gap-6 sm:grid-cols-3"
             id="contact"
           >
@@ -99,7 +82,7 @@ export default function Home() {
                 Coming Soon
               </p>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </main>
