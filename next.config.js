@@ -8,13 +8,6 @@ const nextConfig = {
   },
   basePath: process.env.NODE_ENV === 'production' ? '/lxt' : '',
   trailingSlash: true,
-  async generateStaticParams() {
-    return {
-      '/': { page: '/' },
-      '/en': { page: '/en' },
-      '/zh': { page: '/zh' },
-    };
-  },
 }
 
 module.exports = withNextIntl(nextConfig); 
