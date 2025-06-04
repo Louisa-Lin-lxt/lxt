@@ -1,6 +1,5 @@
 import { useTranslations } from 'next-intl';
 import Navigation from '@/components/Navigation';
-import Image from 'next/image';
 
 export default function Home() {
   const t = useTranslations('home');
