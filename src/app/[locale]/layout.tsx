@@ -5,14 +5,9 @@ import '../globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export function generateStaticParams() {
-  return [{ locale: 'en' }, { locale: 'zh' }];
-}
-
-export default async function LocaleLayout({ children, params: { locale } }: {
-  children: React.ReactNode;
-  params: { locale: string };
-}) {
+export default async function LocaleLayout(props: any) {
+  const { children, params } = props;
+  const locale = params.locale;
   let messages;
   try {
     messages = (await import(`../../messages/${locale}.json`)).default;
