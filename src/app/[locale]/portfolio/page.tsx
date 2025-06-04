@@ -1,6 +1,5 @@
 import { useTranslations } from 'next-intl';
 import Navigation from '@/components/Navigation';
-import { motion } from 'framer-motion';
 
 export default function Portfolio() {
   const t = useTranslations('portfolio');
@@ -17,15 +16,9 @@ export default function Portfolio() {
               {t('uploadWork')}
             </button>
           </div>
-
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {/* Portfolio items will be mapped here */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="bg-white rounded-lg shadow overflow-hidden"
-            >
+            <div className="bg-white rounded-lg shadow overflow-hidden">
               <div className="aspect-w-16 aspect-h-9 bg-gray-200">
                 {/* Portfolio item image */}
                 <div className="flex items-center justify-center h-48">
@@ -46,7 +39,7 @@ export default function Portfolio() {
                   </a>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </main>
