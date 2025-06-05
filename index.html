@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Louisa Lin | 林星潼</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="lang-switch">
+    <button id="en-btn">English</button>
+    <button id="zh-btn">中文</button>
+  </div>
+  <main class="container">
+    <div class="profile">
+      <div class="avatar">
+        <!-- 头像图片放在 images/avatar.jpg -->
+        <img src="images/avatar.jpg" alt="Profile Photo" onerror="this.style.display='none'" />
+        <div class="avatar-placeholder">Profile Photo Coming Soon</div>
+      </div>
+      <div class="info">
+        <h1 class="name" data-en="Hi👋, I'm Louisa!" data-zh="你好👋, 我是林星潼!">Hi👋, I'm Louisa!</h1>
+        <p class="subtitle" data-en="A freshman in Carnegie Mellon University" data-zh="卡耐基梅隆大学大一学生">A freshman in Carnegie Mellon University</p>
+        <p class="major" data-en="Neuroscience + Biomedical Technology (BME)" data-zh="神经科学 + 生物医学工程">Neuroscience + Biomedical Technology (BME)</p>
+        <p class="year" data-en="Class of 2028" data-zh="2028届">Class of 2028</p>
+        <p class="intro" data-en="A passionate first-year student exploring the intersected tech field at CMU." data-zh="一名在CMU探索技术交叉领域的大一新生。">A passionate first-year student exploring the intersected tech field at CMU.</p>
+        <div class="actions">
+          <a href="cv/cv_en.pdf" class="btn" data-en="Download CV" data-zh="下载简历" download>Download CV</a>
+          <a href="#contact" class="btn btn-outline" data-en="Contact Me" data-zh="我的联系方式 ☎️ / 📧">Contact Me</a>
+          <a href="portfolio.html" class="btn btn-outline" data-en="Portfolio" data-zh="作品集">Portfolio</a>
+        </div>
+      </div>
+    </div>
+    <div class="contact" id="contact">
+      <div class="contact-item">
+        <span class="label" data-en="Email" data-zh="邮箱">Email</span>
+        <span class="value">xingtonl@andrew.cmu.edu</span>
+      </div>
+      <div class="contact-item">
+        <span class="label" data-en="LinkedIn" data-zh="领英">LinkedIn</span>
+        <a class="value" href="https://www.linkedin.com/in/lxt/" target="_blank">linkedin.com/in/lxt</a>
+      </div>
+      <div class="contact-item">
+        <span class="label">GitHub</span>
+        <span class="value">Coming Soon</span>
+      </div>
+    </div>
+  </main>
+  <script src="main.js"></script>
+</body>
+</html> 
