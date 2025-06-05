@@ -33,20 +33,21 @@
     </header>
 
     <main>
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <div class="hero-text">
+        <section class="hero">
+            <div class="hero-content" style="display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;">
+                <div class="hero-text" style="flex:1;min-width:320px;">
                     <p class="welcome-text">Hi, welcome to</p>
-                    <h1 class="name">Xingtong Lin</h1>
-                    <p class="world-text">'s world...</p>
-                    <div class="bio">
-                        <p>I am a freshman studying at Carnegie Mellon University, a musician (non-professional type), a traveler, and an animal lover. I really relish the process of exploring what I love and passionate about, building up my own academic skills, solving problems for a more glamorous world.</p>
-                    </div>
+                    <h1 class="name" style="font-size:60px;font-family:'Playfair Display','Big Caslon',serif;font-weight:bold;">Xingtong Lin</h1>
+                    <p class="world-text" style="font-size:1.5rem;margin-bottom:2rem;">'s world...</p>
                 </div>
-                <div class="profile-image">
-                    <img src="images/profile2.jpg" alt="Xingtong Lin" class="circular-image">
+                <div class="profile-image" style="flex:0 0 320px;display:flex;justify-content:center;">
+                    <img src="images/profile.jpg" alt="Xingtong Lin" class="circular-image" style="width:280px;height:280px;object-fit:cover;border-radius:50%;border:5px solid #fff;box-shadow:0 4px 24px rgba(0,0,0,0.18);">
                 </div>
             </div>
+        </section>
+        <section style="text-align:center;margin-top:2rem;">
+            <p class="blessing" style="font-size:40px;font-family:'Playfair Display','Big Caslon',serif;font-weight:500;">May your future be filled with endless possibilities</p>
+            <p class="blessing-zh" style="font-size:40px;font-family:'SimHei','黑体',sans-serif;font-weight:500;display:none;">愿你得偿所愿</p>
         </section>
 
         <!-- Gallery部分暂时隐藏 -->
@@ -132,8 +133,6 @@
 
     <footer class="glass-effect">
         <div class="footer-content">
-            <p class="blessing">May your future be filled with endless possibilities</p>
-            <p class="blessing-zh" style="display:none;">愿你得偿所愿</p>
             <p class="copyright">© 2024 Xingtong Lin. All rights reserved.</p>
         </div>
     </footer>

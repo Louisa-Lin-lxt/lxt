@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: "Big Caslon", "SimHei", serif;
-  background: linear-gradient(135deg, #3665F9, #0897B4, #4288B2);
+  background: url('../images/bg.jpg') no-repeat center center fixed;
   background-size: cover;
   background-attachment: fixed;
   color: white;
@@ -12,7 +12,7 @@ body {
   color: white;
 }
 
-.navbar {
+.navbar, .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -59,28 +59,40 @@ body {
   justify-content: center;
   padding: 6rem 2rem 2rem;
 }
-.hero-photo {
+.hero-content {
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin-bottom: 1.5rem;
-}
-.profile-pic {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid white;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
 }
 .hero-text {
-  text-align: center;
+  text-align: left;
   max-width: 700px;
   font-size: 1.5rem;
 }
-.hero-text h1 {
-  font-size: 3rem;
+.hero-text h1, .name {
+  font-size: 60px !important;
+  font-family: 'Playfair Display','Big Caslon',serif;
   font-weight: bold;
   margin: 1.5rem 0 1rem 0;
+}
+.profile-image, .circular-image {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+}
+.dog-image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  margin-bottom: 1rem;
 }
 
 section {
@@ -130,6 +142,28 @@ section {
   color: #e0e0e0;
 }
 
+.three-columns {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.column {
+  background: rgba(255,255,255,0.13);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+  padding: 2rem 1.2rem;
+  min-width: 240px;
+  max-width: 320px;
+  flex: 1 1 260px;
+  color: #fff;
+  transition: box-shadow 0.2s;
+}
+.column:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+}
+
 .contact-info {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -164,7 +198,7 @@ footer {
   color: white;
 }
 .blessing, .blessing-zh {
-  font-size: 1.1rem;
+  font-size: 40px !important;
   margin-bottom: 0.5rem;
   font-weight: 500;
 }
@@ -174,16 +208,21 @@ footer {
   opacity: 0.7;
 }
 
+@media (max-width: 1100px) {
+  .hero-content { flex-direction: column; align-items: center; }
+  .profile-image, .circular-image { margin-top: 2rem; }
+}
 @media (max-width: 900px) {
-  .navbar { padding: 1.2rem 1rem; }
+  .navbar, .nav-container { padding: 1.2rem 1rem; }
   section { padding: 0 0.5rem; }
   .profile-section { flex-direction: column; gap: 1.2rem; }
-  .profile-pic { width: 150px; height: 150px; }
-  .hero-text h1 { font-size: 2rem; }
+  .profile-image, .circular-image { width: 150px; height: 150px; }
+  .hero-text h1, .name { font-size: 2rem !important; }
+  .three-columns { flex-direction: column; gap: 1.2rem; }
 }
 @media (max-width: 600px) {
   .nav-left a, .nav-right a, .nav-right button { margin-right: 0.5rem; }
-  .hero-text h1 { font-size: 1.3rem; }
-  .profile-pic { width: 100px; height: 100px; }
+  .hero-text h1, .name { font-size: 1.3rem !important; }
+  .profile-image, .circular-image { width: 100px; height: 100px; }
   .hero { padding: 3rem 0.5rem 1rem; }
 }
