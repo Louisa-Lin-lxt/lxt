@@ -1,16 +1,11 @@
 // 语言切换功能
-function switchLanguage(lang) {
-    const buttons = document.querySelectorAll('.language-switch button');
-    buttons.forEach(button => {
-        button.classList.remove('active');
-        if (button.textContent.toLowerCase().includes(lang)) {
-            button.classList.add('active');
-        }
-    });
+let currentLang = 'en';
 
-    // 更新页面内容
-    document.documentElement.lang = lang;
-    updateContent(lang);
+function switchLanguage() {
+    currentLang = currentLang === 'en' ? 'zh' : 'en';
+    document.documentElement.lang = currentLang;
+    document.querySelector('.current-lang').textContent = currentLang.toUpperCase();
+    updateContent(currentLang);
 }
 
 // 更新页面内容
@@ -21,44 +16,54 @@ function updateContent(lang) {
             portfolio: '作品集',
             about: '关于我',
             contact: '联系方式',
-            subtitle: '卡耐基梅隆大学【大一】学生',
-            viewWorks: '查看作品',
-            downloadCV: '下载简历',
-            selectedWorks: '精选作品',
-            aboutMe: '关于我',
-            contactInfo: '联系方式',
+            welcome: '你好，欢迎来到',
+            name: '林星潼',
+            world: '的世界...',
+            bio: '我是卡耐基梅隆大学的一名大一学生，同时也是一名音乐爱好者（非专业），旅行者和动物爱好者。我热爱探索我所喜爱的事物，培养自己的学术能力，为创造更美好的世界解决问题。',
+            gallery: '作品展示',
+            contactTitle: '联系方式',
+            email: '邮箱',
+            phone: '电话',
+            linkedin: '领英主页',
+            instagram: 'Instagram主页',
             blessing: '愿你的未来充满无限可能'
         },
         en: {
             home: 'Home',
             portfolio: 'Portfolio',
-            about: 'About',
+            about: 'About Me',
             contact: 'Contact',
-            subtitle: 'A [Freshman] studying at Carnegie Mellon University',
-            viewWorks: 'View Works',
-            downloadCV: 'Download CV',
-            selectedWorks: 'Selected Works',
-            aboutMe: 'About Me',
-            contactInfo: 'Contact Info',
+            welcome: 'Hi, welcome to',
+            name: 'Xingtong Lin',
+            world: "'s world...",
+            bio: 'I am a freshman studying at Carnegie Mellon University, a musician (non-professional type), a traveler, and an animal lover. I really relish the process of exploring what I love and passionate about, building up my own academic skills, solving problems for a more glamorous world.',
+            gallery: 'Gallery',
+            contactTitle: 'Contact',
+            email: 'Email',
+            phone: 'Phone',
+            linkedin: 'LinkedIn Profile',
+            instagram: 'Instagram Profile',
             blessing: 'May your future be filled with endless possibilities'
         }
     };
 
     // 更新导航链接
-    document.querySelectorAll('.nav-links a').forEach(link => {
+    document.querySelectorAll('.nav-link').forEach(link => {
         const key = link.getAttribute('href').replace('#', '');
         if (translations[lang][key]) {
             link.textContent = translations[lang][key];
         }
     });
 
-    // 更新其他文本内容
-    document.querySelector('.subtitle').textContent = translations[lang].subtitle;
-    document.querySelector('.btn.primary').textContent = translations[lang].viewWorks;
-    document.querySelector('.btn.secondary').textContent = translations[lang].downloadCV;
-    document.querySelector('.portfolio h2').textContent = translations[lang].selectedWorks;
-    document.querySelector('.about h2').textContent = translations[lang].aboutMe;
-    document.querySelector('.contact h2').textContent = translations[lang].contactInfo;
+    // 更新主页内容
+    document.querySelector('.welcome-text').textContent = translations[lang].welcome;
+    document.querySelector('.name').textContent = translations[lang].name;
+    document.querySelector('.world-text').textContent = translations[lang].world;
+    document.querySelector('.bio p').textContent = translations[lang].bio;
+
+    // 更新其他部分
+    document.querySelector('.gallery h2').textContent = translations[lang].gallery;
+    document.querySelector('.contact h2').textContent = translations[lang].contactTitle;
     document.querySelector('.blessing').textContent = translations[lang].blessing;
 }
 
@@ -103,6 +108,5 @@ window.addEventListener('scroll', () => {
 // 初始化页面
 document.addEventListener('DOMContentLoaded', () => {
     // 设置默认语言
-    const defaultLang = 'zh';
-    switchLanguage(defaultLang);
+    switchLanguage();
 }); 
