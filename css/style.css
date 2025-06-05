@@ -12,6 +12,10 @@ body {
   color: white;
 }
 
+header nav, .navbar, .nav-container {
+  background: #13294B !important;
+}
+
 .navbar, .nav-container {
   display: flex;
   justify-content: space-between;
@@ -73,7 +77,7 @@ body {
   font-size: 1.5rem;
 }
 .hero-text h1, .name {
-  font-size: 60px !important;
+  font-size: 70px !important;
   font-family: 'Playfair Display','Big Caslon',serif;
   font-weight: bold;
   margin: 1.5rem 0 1rem 0;
@@ -143,11 +147,10 @@ section {
 }
 
 .three-columns {
-  display: flex;
+  display: flex !important;
   gap: 2rem;
-  margin-top: 2.5rem;
+  flex-wrap: nowrap !important;
   justify-content: center;
-  flex-wrap: wrap;
 }
 .column {
   background: rgba(255,255,255,0.13);
@@ -208,9 +211,27 @@ footer {
   opacity: 0.7;
 }
 
+.blessing-row {
+  font-size: 40px;
+  font-family: 'Playfair Display','Big Caslon',serif;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+}
+.bio {
+  max-width: 700px;
+  margin: 2rem auto 0 auto;
+  text-align: left;
+  font-size: 1.25rem;
+}
+.bio-zh { display: none; }
+
 @media (max-width: 1100px) {
   .hero-content { flex-direction: column; align-items: center; }
   .profile-image, .circular-image { margin-top: 2rem; }
+  .three-columns { flex-wrap: wrap !important; }
 }
 @media (max-width: 900px) {
   .navbar, .nav-container { padding: 1.2rem 1rem; }
