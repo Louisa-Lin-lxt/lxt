@@ -6,14 +6,12 @@ html, body {
     box-sizing: border-box;
 }
 body {
-    min-height: 100vh;
-    width: 100vw;
+    font-family: 'Big Caslon', 'SimHei', serif;
     background: url('images/bg.jpg') no-repeat center center fixed;
     background-size: cover;
-    font-family: 'Big Caslon', 'SimHei', serif;
+    min-height: 100vh;
     color: #fff;
     position: relative;
-    overflow-x: hidden;
 }
 html[lang="zh"] body {
     font-family: 'SimHei', 'Big Caslon', serif;
