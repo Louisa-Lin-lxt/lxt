@@ -7,7 +7,7 @@ const translations = {
         contact: 'Contact',
         welcome: 'Hi, welcome to',
         world: "'s world...",
-        bio: "I am a freshman studying at Carnegie Mellon University, a musician (non-professional type), a traveler, and an animal lover. I really relish the process of exploring what I love and passionate about, building up my own academic skills, solving problems for a more glamorous world.",
+        bio: "Hi! Welcome to my channel! I'm Xingtong Lin (you can call me Louisa), a freshman studying at Carnegie Mellon University, a musician (non-professional type), a traveler, and an animal lover. I really relish the process of exploring what I love and passionate about, building up my own academic skills, solving problems for a more glamorous world.",
         gallery: 'Gallery',
         aboutMe: 'About Me',
         moreAboutMe: 'More About Me',
@@ -42,12 +42,13 @@ const translations = {
     }
 };
 
-let currentLang = 'en';
+let currentLang = localStorage.getItem('language') || 'en';
 
-document.documentElement.lang = 'en';
+document.documentElement.lang = currentLang;
 
 function switchLanguage() {
     currentLang = currentLang === 'en' ? 'zh' : 'en';
+    localStorage.setItem('language', currentLang);
     document.documentElement.lang = currentLang;
     document.querySelector('.current-lang').textContent = currentLang === 'en' ? 'EN' : '中';
     updateContent(currentLang);
@@ -122,15 +123,14 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// 页面加载时强制英文
+// 页面加载时根据 localStorage 设置语言
 window.addEventListener('DOMContentLoaded', () => {
-    currentLang = 'en';
-    document.documentElement.lang = 'en';
-    document.querySelector('.current-lang').textContent = 'EN';
-    updateContent('en');
-    document.body.style.fontFamily = "'Big Caslon', serif";
-    // 导航栏全部英文
-    document.querySelectorAll('.nav-link')[0].textContent = 'Home';
-    document.querySelectorAll('.nav-link')[1].textContent = 'About Me';
-    document.querySelectorAll('.nav-link')[2].textContent = 'Contact';
+    document.documentElement.lang = currentLang;
+    document.querySelector('.current-lang').textContent = currentLang === 'en' ? 'EN' : '中';
+    updateContent(currentLang);
+    document.body.style.fontFamily = currentLang === 'en' ? "'Big Caslon', serif" : "'SimHei', serif";
+    // 导航栏根据当前语言设置
+    document.querySelectorAll('.nav-link')[0].textContent = translations[currentLang].home;
+    document.querySelectorAll('.nav-link')[1].textContent = translations[currentLang].about;
+    document.querySelectorAll('.nav-link')[2].textContent = translations[currentLang].contact;
 }); 
