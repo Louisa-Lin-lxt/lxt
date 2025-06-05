@@ -15,7 +15,10 @@ const translations = {
         myDog: 'My Dog',
         performingTraveling: 'Performing & Traveling',
         downloadCV: 'Download CV',
-        blessing: 'May your future be filled with endless possibilities'
+        blessing: 'May your future be filled with endless possibilities',
+        name: 'Xingtong Lin',
+        showZhBlessing: false,
+        showEnBlessing: true
     },
     zh: {
         home: '首页',
@@ -32,17 +35,24 @@ const translations = {
         myDog: '我的狗狗',
         performingTraveling: '表演与旅行',
         downloadCV: '下载简历',
-        blessing: '愿你的未来充满无限可能'
+        blessing: '愿你得偿所愿',
+        name: '林星潼',
+        showZhBlessing: true,
+        showEnBlessing: false
     }
 };
 
 let currentLang = 'en';
+
+document.documentElement.lang = 'en';
 
 function switchLanguage() {
     currentLang = currentLang === 'en' ? 'zh' : 'en';
     document.documentElement.lang = currentLang;
     document.querySelector('.current-lang').textContent = currentLang === 'en' ? 'EN' : '中';
     updateContent(currentLang);
+    // 切换字体
+    document.body.style.fontFamily = currentLang === 'en' ? "'Big Caslon', serif" : "'SimHei', serif";
 }
 
 function updateContent(lang) {
@@ -74,6 +84,19 @@ function updateContent(lang) {
             }
         }
     }
+
+    // 姓名
+    const nameEl = document.querySelector('.name');
+    if (nameEl) nameEl.textContent = translations[lang].name;
+    // 祝福语
+    const blessingEn = document.querySelector('.blessing');
+    const blessingZh = document.querySelector('.blessing-zh');
+    if (blessingEn && blessingZh) {
+        blessingEn.style.display = translations[lang].showEnBlessing ? '' : 'none';
+        blessingZh.style.display = translations[lang].showZhBlessing ? '' : 'none';
+        blessingEn.textContent = translations['en'].blessing;
+        blessingZh.textContent = translations['zh'].blessing;
+    }
 }
 
 // 平滑滚动
@@ -103,4 +126,5 @@ window.addEventListener('scroll', () => {
 document.addEventListener('DOMContentLoaded', () => {
     // 设置默认语言
     switchLanguage();
+    document.body.style.fontFamily = "'Big Caslon', serif";
 }); 

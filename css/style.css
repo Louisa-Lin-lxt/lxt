@@ -10,15 +10,20 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: #fff;
 }
 
 body {
-    font-family: 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Arial', sans-serif;
-    background: linear-gradient(135deg, #e0e7ff 0%, #f0f4ff 50%, #c7d2fe 100%);
-    background-attachment: fixed;
+    font-family: 'Big Caslon', 'SimHei', serif;
+    background: url('images/bg.jpg') no-repeat center center fixed;
+    background-size: cover;
     min-height: 100vh;
-    color: var(--text-color);
+    color: #fff;
     position: relative;
+}
+
+html[lang="zh"] body {
+    font-family: 'SimHei', 'Big Caslon', serif;
 }
 
 body::before {
@@ -138,12 +143,11 @@ main {
 }
 
 .name {
-    font-size: 4rem;
+    font-size: 60px;
     font-weight: bold;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: none;
+    -webkit-text-fill-color: unset;
 }
 
 .world-text {
