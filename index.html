@@ -1,51 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Louisa Lin | 林星潼</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>林星潼 - 个人网站</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <div class="lang-switch">
-    <button id="en-btn">English</button>
-    <button id="zh-btn">中文</button>
-  </div>
-  <main class="container">
-    <div class="profile">
-      <div class="avatar">
-        <!-- 头像图片放在 images/avatar.jpg -->
-        <img src="images/avatar.jpg" alt="Profile Photo" onerror="this.style.display='none'" />
-        <div class="avatar-placeholder">Profile Photo Coming Soon</div>
-      </div>
-      <div class="info">
-        <h1 class="name" data-en="Hi👋, I'm Louisa!" data-zh="你好👋, 我是林星潼!">Hi👋, I'm Louisa!</h1>
-        <p class="subtitle" data-en="A freshman in Carnegie Mellon University" data-zh="卡耐基梅隆大学大一学生">A freshman in Carnegie Mellon University</p>
-        <p class="major" data-en="Neuroscience + Biomedical Technology (BME)" data-zh="神经科学 + 生物医学工程">Neuroscience + Biomedical Technology (BME)</p>
-        <p class="year" data-en="Class of 2028" data-zh="2028届">Class of 2028</p>
-        <p class="intro" data-en="A passionate first-year student exploring the intersected tech field at CMU." data-zh="一名在CMU探索技术交叉领域的大一新生。">A passionate first-year student exploring the intersected tech field at CMU.</p>
-        <div class="actions">
-          <a href="cv/cv_en.pdf" class="btn" data-en="Download CV" data-zh="下载简历" download>Download CV</a>
-          <a href="#contact" class="btn btn-outline" data-en="Contact Me" data-zh="我的联系方式 ☎️ / 📧">Contact Me</a>
-          <a href="portfolio.html" class="btn btn-outline" data-en="Portfolio" data-zh="作品集">Portfolio</a>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">林星潼</div>
+                <div class="nav-links">
+                    <a href="#home" class="active">首页</a>
+                    <a href="#portfolio">作品集</a>
+                    <a href="#about">关于我</a>
+                    <a href="#contact">联系方式</a>
+                    <div class="language-switch">
+                        <button onclick="switchLanguage('zh')" class="active">中文</button>
+                        <button onclick="switchLanguage('en')">English</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>林星潼</h1>
+                <p class="subtitle">卡耐基梅隆大学学生</p>
+                <div class="cta-buttons">
+                    <a href="#portfolio" class="btn primary">查看作品</a>
+                    <a href="cv.pdf" class="btn secondary" download>下载简历</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="portfolio">
+            <h2>精选作品</h2>
+            <div class="gallery">
+                <!-- 作品项目将通过JavaScript动态加载 -->
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h2>关于我</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>我是卡耐基梅隆大学的一名学生，专注于探索艺术与技术的交汇点。</p>
+                    <p>通过我的作品，我希望能够激发思考，创造价值，并与世界分享我的视角。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>联系方式</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <a href="mailto:your.email@example.com" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>your.email@example.com</span>
+                    </a>
+                    <a href="https://github.com/yourusername" class="contact-item" target="_blank">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://linkedin.com/in/yourusername" class="contact-item" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p class="blessing">愿你的未来充满无限可能</p>
+            <p class="blessing-en">May your future be filled with endless possibilities</p>
+            <p class="copyright">© 2024 林星潼. All rights reserved.</p>
         </div>
-      </div>
-    </div>
-    <div class="contact" id="contact">
-      <div class="contact-item">
-        <span class="label" data-en="Email" data-zh="邮箱">Email</span>
-        <span class="value">xingtonl@andrew.cmu.edu</span>
-      </div>
-      <div class="contact-item">
-        <span class="label" data-en="LinkedIn" data-zh="领英">LinkedIn</span>
-        <a class="value" href="https://www.linkedin.com/in/lxt/" target="_blank">linkedin.com/in/lxt</a>
-      </div>
-      <div class="contact-item">
-        <span class="label">GitHub</span>
-        <span class="value">Coming Soon</span>
-      </div>
-    </div>
-  </main>
-  <script src="main.js"></script>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html> 
