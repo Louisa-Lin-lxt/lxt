@@ -1,112 +1,189 @@
-
 body {
-    margin: 0;
-    font-family: "Big Caslon", serif;
-    background: linear-gradient(135deg, #3665F9, #0897B4, #4288B2);
-    background-size: cover;
-    background-attachment: fixed;
-    color: white;
-  }
-  
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 1.2rem 2rem;
-    font-size: 1.1rem;
-  }
-  
-  .nav-left a, .nav-right a, .nav-right button {
-    margin-right: 1rem;
-    color: white;
-    text-decoration: none;
-    position: relative;
-  }
-  
-  .nav-left a.active::after {
-    content: "";
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: white;
-  }
-  
-  .icon {
-    width: 20px;
-    height: 20px;
-    vertical-align: middle;
-  }
-  
-  #language-toggle {
-    background: transparent;
-    border: 1px solid white;
-    color: white;
-    padding: 0.3rem 0.7rem;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 6rem 2rem 2rem;
-    flex-wrap: wrap;
-  }
-  
-  .hero-text {
-    flex: 3;
-    min-width: 280px;
-    max-width: 700px;
-    font-size: 1.5rem;
-  }
-  
-  .hero-text h1 {
-    font-size: 3rem;
-    font-weight: bold;
-  }
-  
-  .hero-photo {
-    flex: 1;
-    padding: 1rem;
-  }
-  
-  .profile-pic {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid white;
-  }
-  
-  .gallery-section {
-    text-align: center;
-    margin-top: 4rem;
-    padding-bottom: 3rem;
-  }
-  
-  .gallery-placeholder {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-    padding: 2rem;
-  }
-  
-  .gallery-item {
-    width: 250px;
-    height: 160px;
-    background: rgba(255,255,255,0.15);
-    border-radius: 10px;
-    line-height: 160px;
-    color: white;
-    font-weight: bold;
-  }
-  
-  footer {
-    text-align: center;
-    padding: 2rem;
-    font-size: 1.2rem;
-    font-family: "Heiti SC", "榛戜綋", sans-serif;
-  }
+  margin: 0;
+  font-family: "Big Caslon", "SimHei", serif;
+  background: linear-gradient(135deg, #3665F9, #0897B4, #4288B2);
+  background-size: cover;
+  background-attachment: fixed;
+  color: white;
+}
+
+* {
+  box-sizing: border-box;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  font-size: 1.1rem;
+}
+.nav-left a, .nav-right a, .nav-right button {
+  margin-right: 1rem;
+  color: white;
+  text-decoration: none;
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  position: relative;
+}
+.nav-left a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: white;
+}
+.icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+#language-toggle {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem 2rem;
+}
+.hero-photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.profile-pic {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+}
+.hero-text {
+  text-align: center;
+  max-width: 700px;
+  font-size: 1.5rem;
+}
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 1.5rem 0 1rem 0;
+}
+
+section {
+  margin: 2.5rem auto;
+  max-width: 900px;
+  padding: 0 2rem;
+}
+
+.about-header, .contact-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.info-text {
+  min-width: 220px;
+}
+.info-text h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+.info-text p {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.cv-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  padding: 0.7rem 1.3rem;
+  border-radius: 20px;
+  text-decoration: underline;
+  margin-top: 1rem;
+  font-weight: 500;
+  border: none;
+  background: none;
+  transition: color 0.2s;
+}
+.cv-download:hover {
+  color: #e0e0e0;
+}
+
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.1rem;
+  padding: 1.2rem 1rem;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+.contact-item a {
+  color: white;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.contact-item a:hover {
+  color: #e0e0e0;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 1.2rem;
+  background: none;
+  color: white;
+}
+.blessing, .blessing-zh {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+.copyright {
+  font-size: 0.95rem;
+  color: white;
+  opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+  .navbar { padding: 1.2rem 1rem; }
+  section { padding: 0 0.5rem; }
+  .profile-section { flex-direction: column; gap: 1.2rem; }
+  .profile-pic { width: 150px; height: 150px; }
+  .hero-text h1 { font-size: 2rem; }
+}
+@media (max-width: 600px) {
+  .nav-left a, .nav-right a, .nav-right button { margin-right: 0.5rem; }
+  .hero-text h1 { font-size: 1.3rem; }
+  .profile-pic { width: 100px; height: 100px; }
+  .hero { padding: 3rem 0.5rem 1rem; }
+}
