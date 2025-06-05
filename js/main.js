@@ -1,11 +1,13 @@
 // 语言切换功能
-let currentLang = 'en';
-
 function switchLanguage() {
-    currentLang = currentLang === 'en' ? 'zh' : 'en';
-    document.documentElement.lang = currentLang;
-    document.querySelector('.current-lang').textContent = currentLang.toUpperCase();
-    updateContent(currentLang);
+    const currentLang = document.querySelector('.current-lang');
+    if (currentLang.textContent === 'EN') {
+        currentLang.textContent = '中';
+        // 这里可以添加切换到中文的逻辑
+    } else {
+        currentLang.textContent = 'EN';
+        // 这里可以添加切换到英文的逻辑
+    }
 }
 
 // 更新页面内容
@@ -74,35 +76,20 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
             target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+                behavior: 'smooth'
             });
         }
     });
 });
 
 // 导航栏滚动效果
-let lastScroll = 0;
-const header = document.querySelector('header');
-
 window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll <= 0) {
-        header.classList.remove('scroll-up');
-        return;
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+        header.style.background = 'rgba(255, 255, 255, 0.95)';
+    } else {
+        header.style.background = 'rgba(255, 255, 255, 0.8)';
     }
-    
-    if (currentScroll > lastScroll && !header.classList.contains('scroll-down')) {
-        // 向下滚动
-        header.classList.remove('scroll-up');
-        header.classList.add('scroll-down');
-    } else if (currentScroll < lastScroll && header.classList.contains('scroll-down')) {
-        // 向上滚动
-        header.classList.remove('scroll-down');
-        header.classList.add('scroll-up');
-    }
-    lastScroll = currentScroll;
 });
 
 // 初始化页面
