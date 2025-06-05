@@ -1,260 +1,112 @@
-/* 全局基础设置 */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 body {
-    font-family: 'Big Caslon', 'SimHei', serif;
-    background: url('images/bg.jpg') no-repeat center center fixed;
+    margin: 0;
+    font-family: "Big Caslon", serif;
+    background: linear-gradient(135deg, #3665F9, #0897B4, #4288B2);
     background-size: cover;
-    min-height: 100vh;
-    color: #fff;
-    position: relative;
-}
-html[lang="zh"] body {
-    font-family: 'SimHei', 'Big Caslon', serif;
-}
-* {
-    color: #fff !important;
-    box-sizing: border-box;
-}
-
-/* 毛玻璃效果容器 */
-.glass-effect {
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    border-radius: 20px;
-    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
-    border: 1px solid rgba(255,255,255,0.18);
-}
-
-/* 导航栏 */
-header {
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    background: rgba(255,255,255,0.10);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0.8rem 2rem;
+    background-attachment: fixed;
+    color: white;
+  }
+  
+  .navbar {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-}
-.nav-left {
-    display: flex;
-    gap: 2rem;
-}
-.nav-link {
-    text-decoration: none;
+    padding: 1.2rem 2rem;
     font-size: 1.1rem;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    padding: 0.2rem 0.8rem;
-    border-radius: 8px;
-    transition: background 0.2s, color 0.2s;
-}
-.nav-link.active, .nav-link:hover {
-    background: rgba(255,255,255,0.18);
-}
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-}
-.language-switch {
+  }
+  
+  .nav-left a, .nav-right a, .nav-right button {
+    margin-right: 1rem;
+    color: white;
+    text-decoration: none;
+    position: relative;
+  }
+  
+  .nav-left a.active::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: white;
+  }
+  
+  .icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+  }
+  
+  #language-toggle {
     background: transparent;
-    border: 1px solid #fff;
-    color: #fff;
-    border-radius: 16px;
-    padding: 0.3rem 1.1rem;
-    font-size: 1rem;
+    border: 1px solid white;
+    color: white;
+    padding: 0.3rem 0.7rem;
     cursor: pointer;
-    margin-right: 0.5rem;
-    transition: background 0.2s, color 0.2s;
-}
-.language-switch:hover {
-    background: #fff;
-    color: #1a1a1a !important;
-}
-.social-icon {
-    font-size: 1.3rem;
-    color: #fff;
-    transition: opacity 0.2s;
-    opacity: 0.85;
-}
-.social-icon:hover {
-    opacity: 1;
-}
-
-main {
-    padding-top: 90px;
-    min-height: 80vh;
-}
-
-/* 主页头像和姓名 */
-.hero {
+    border-radius: 5px;
+  }
+  
+  .hero {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    min-height: 60vh;
-    margin-bottom: 2rem;
-}
-.profile-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 1.5rem;
-}
-.circular-image {
+    justify-content: space-around;
+    padding: 6rem 2rem 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .hero-text {
+    flex: 3;
+    min-width: 280px;
+    max-width: 700px;
+    font-size: 1.5rem;
+  }
+  
+  .hero-text h1 {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  
+  .hero-photo {
+    flex: 1;
+    padding: 1rem;
+  }
+  
+  .profile-pic {
     width: 220px;
     height: 220px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid rgba(255,255,255,0.5);
-    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
-}
-.name {
-    font-size: 60px;
-    font-weight: bold;
+    border: 4px solid white;
+  }
+  
+  .gallery-section {
     text-align: center;
-    margin-bottom: 1.2rem;
-    letter-spacing: 2px;
-}
-.welcome-text, .world-text {
-    font-size: 1.5rem;
-    text-align: center;
-    margin-bottom: 0.5rem;
-    font-weight: 400;
-}
-.bio {
-    font-size: 1.15rem;
-    line-height: 1.7;
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto 2rem auto;
-}
-
-/* About/Contact/Section 通用 */
-section.glass-effect {
-    max-width: 900px;
-    margin: 2.5rem auto 2.5rem auto;
-    padding: 2.5rem 2rem;
-}
-.about-header, .contact-header {
-    text-align: center;
-    margin-bottom: 2.5rem;
-}
-.profile-section {
+    margin-top: 4rem;
+    padding-bottom: 3rem;
+  }
+  
+  .gallery-placeholder {
     display: flex;
-    align-items: center;
-    gap: 2.5rem;
     justify-content: center;
     flex-wrap: wrap;
-}
-.info-text {
-    min-width: 220px;
-}
-.info-text h3 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  .gallery-item {
+    width: 250px;
+    height: 160px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    line-height: 160px;
+    color: white;
     font-weight: bold;
-}
-.info-text p {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-}
-.cv-download {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: rgba(255,255,255,0.18);
-    color: #fff !important;
-    padding: 0.7rem 1.3rem;
-    border-radius: 20px;
-    text-decoration: none;
-    margin-top: 1rem;
-    font-weight: 500;
-    border: 1px solid #fff;
-    transition: background 0.2s, color 0.2s;
-}
-.cv-download:hover {
-    background: #fff;
-    color: #1a1a1a !important;
-}
-
-/* 联系方式 */
-.contact-info {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
-    max-width: 700px;
-    margin: 0 auto;
-}
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-size: 1.1rem;
-    padding: 1.2rem 1rem;
-    border-radius: 14px;
-    background: rgba(255,255,255,0.10);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-.contact-item a {
-    color: #fff !important;
-    text-decoration: underline;
-    transition: color 0.2s;
-}
-.contact-item a:hover {
-    color: #e0e0e0 !important;
-}
-
-/* Footer */
-footer.glass-effect {
-    max-width: 100vw;
-    margin: 0;
-    padding: 2rem 0;
+  }
+  
+  footer {
     text-align: center;
-    border-radius: 0;
-    box-shadow: none;
-    background: rgba(255,255,255,0.10);
-}
-.blessing, .blessing-zh {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-}
-.copyright {
-    font-size: 0.95rem;
-    color: #fff !important;
-    opacity: 0.7;
-}
-
-/* 响应式 */
-@media (max-width: 900px) {
-    .nav-container { padding: 0.8rem 1rem; }
-    section.glass-effect { padding: 1.5rem 0.5rem; }
-    .profile-section { flex-direction: column; gap: 1.2rem; }
-    .circular-image { width: 150px; height: 150px; }
-    .name { font-size: 38px; }
-}
-@media (max-width: 600px) {
-    .nav-left { gap: 1rem; }
-    .nav-link { font-size: 1rem; padding: 0.2rem 0.5rem; }
-    .name { font-size: 28px; }
-    .bio { font-size: 1rem; }
-    .circular-image { width: 100px; height: 100px; }
-    main { padding-top: 70px; }
-} 
+    padding: 2rem;
+    font-size: 1.2rem;
+    font-family: "Heiti SC", "榛戜綋", sans-serif;
+  }
