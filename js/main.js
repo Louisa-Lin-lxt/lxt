@@ -122,9 +122,11 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// 初始化页面
-document.addEventListener('DOMContentLoaded', () => {
-    // 设置默认语言
-    switchLanguage();
+// 页面加载时强制英文
+window.addEventListener('DOMContentLoaded', () => {
+    currentLang = 'en';
+    document.documentElement.lang = 'en';
+    document.querySelector('.current-lang').textContent = 'EN';
+    updateContent('en');
     document.body.style.fontFamily = "'Big Caslon', serif";
 }); 
