@@ -1,72 +1,79 @@
 // 语言切换功能
-function switchLanguage() {
-    const currentLang = document.querySelector('.current-lang');
-    if (currentLang.textContent === 'EN') {
-        currentLang.textContent = '中';
-        // 这里可以添加切换到中文的逻辑
-    } else {
-        currentLang.textContent = 'EN';
-        // 这里可以添加切换到英文的逻辑
+const translations = {
+    en: {
+        home: 'Home',
+        portfolio: 'Portfolio',
+        about: 'About Me',
+        contact: 'Contact',
+        welcome: 'Hi, welcome to',
+        world: "'s world...",
+        bio: "I am a freshman studying at Carnegie Mellon University, a musician (non-professional type), a traveler, and an animal lover. I really relish the process of exploring what I love and passionate about, building up my own academic skills, solving problems for a more glamorous world.",
+        gallery: 'Gallery',
+        aboutMe: 'About Me',
+        moreAboutMe: 'More About Me',
+        currentResearch: 'Current Research',
+        myDog: 'My Dog',
+        performingTraveling: 'Performing & Traveling',
+        downloadCV: 'Download CV',
+        blessing: 'May your future be filled with endless possibilities'
+    },
+    zh: {
+        home: '首页',
+        portfolio: '作品集',
+        about: '关于我',
+        contact: '联系方式',
+        welcome: '你好，欢迎来到',
+        world: '的世界...',
+        bio: '我是卡内基梅隆大学的大一学生，一个非专业音乐人，旅行者和动物爱好者。我真的很享受探索我所热爱的事物，建立自己的学术技能，为更美好的世界解决问题的过程。',
+        gallery: '作品展示',
+        aboutMe: '关于我',
+        moreAboutMe: '更多关于我',
+        currentResearch: '当前研究',
+        myDog: '我的狗狗',
+        performingTraveling: '表演与旅行',
+        downloadCV: '下载简历',
+        blessing: '愿你的未来充满无限可能'
     }
+};
+
+let currentLang = 'en';
+
+function switchLanguage() {
+    currentLang = currentLang === 'en' ? 'zh' : 'en';
+    document.documentElement.lang = currentLang;
+    document.querySelector('.current-lang').textContent = currentLang === 'en' ? 'EN' : '中';
+    updateContent(currentLang);
 }
 
-// 更新页面内容
 function updateContent(lang) {
-    const translations = {
-        zh: {
-            home: '首页',
-            portfolio: '作品集',
-            about: '关于我',
-            contact: '联系方式',
-            welcome: '你好，欢迎来到',
-            name: '林星潼',
-            world: '的世界...',
-            bio: '我是卡耐基梅隆大学的一名大一学生，同时也是一名音乐爱好者（非专业），旅行者和动物爱好者。我热爱探索我所喜爱的事物，培养自己的学术能力，为创造更美好的世界解决问题。',
-            gallery: '作品展示',
-            contactTitle: '联系方式',
-            email: '邮箱',
-            phone: '电话',
-            linkedin: '领英主页',
-            instagram: 'Instagram主页',
-            blessing: '愿你的未来充满无限可能'
-        },
-        en: {
-            home: 'Home',
-            portfolio: 'Portfolio',
-            about: 'About Me',
-            contact: 'Contact',
-            welcome: 'Hi, welcome to',
-            name: 'Xingtong Lin',
-            world: "'s world...",
-            bio: 'I am a freshman studying at Carnegie Mellon University, a musician (non-professional type), a traveler, and an animal lover. I really relish the process of exploring what I love and passionate about, building up my own academic skills, solving problems for a more glamorous world.',
-            gallery: 'Gallery',
-            contactTitle: 'Contact',
-            email: 'Email',
-            phone: 'Phone',
-            linkedin: 'LinkedIn Profile',
-            instagram: 'Instagram Profile',
-            blessing: 'May your future be filled with endless possibilities'
-        }
+    const elements = {
+        '.nav-link[href="#home"]': 'home',
+        '.nav-link[href="#portfolio"]': 'portfolio',
+        '.nav-link[href="#about"]': 'about',
+        '.nav-link[href="#contact"]': 'contact',
+        '.welcome-text': 'welcome',
+        '.world-text': 'world',
+        '.bio p': 'bio',
+        '#portfolio h2': 'gallery',
+        '#about h2': 'aboutMe',
+        '.more-about h3': 'moreAboutMe',
+        '.research h4': 'currentResearch',
+        '.dog h4': 'myDog',
+        '.travel h4': 'performingTraveling',
+        '.cv-download': 'downloadCV',
+        '.blessing': 'blessing'
     };
 
-    // 更新导航链接
-    document.querySelectorAll('.nav-link').forEach(link => {
-        const key = link.getAttribute('href').replace('#', '');
-        if (translations[lang][key]) {
-            link.textContent = translations[lang][key];
+    for (const [selector, key] of Object.entries(elements)) {
+        const element = document.querySelector(selector);
+        if (element) {
+            if (selector === '.cv-download') {
+                element.innerHTML = `<i class="fas fa-download"></i> ${translations[lang][key]}`;
+            } else {
+                element.textContent = translations[lang][key];
+            }
         }
-    });
-
-    // 更新主页内容
-    document.querySelector('.welcome-text').textContent = translations[lang].welcome;
-    document.querySelector('.name').textContent = translations[lang].name;
-    document.querySelector('.world-text').textContent = translations[lang].world;
-    document.querySelector('.bio p').textContent = translations[lang].bio;
-
-    // 更新其他部分
-    document.querySelector('.gallery h2').textContent = translations[lang].gallery;
-    document.querySelector('.contact h2').textContent = translations[lang].contactTitle;
-    document.querySelector('.blessing').textContent = translations[lang].blessing;
+    }
 }
 
 // 平滑滚动
