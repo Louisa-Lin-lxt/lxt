@@ -98,6 +98,30 @@ function updateContent(lang) {
         blessingEn.textContent = translations['en'].blessing;
         blessingZh.textContent = translations['zh'].blessing;
     }
+
+    // 切换 about.html 中的内容
+    const aboutElements = {
+        '.about-name': 'name',
+        '.about-school': 'school',
+        '.about-year': 'year',
+        '.about-major': 'major',
+        '.cv-download': 'downloadCV',
+        '.research-title': 'currentResearch',
+        '.dog h4': 'myDog',
+        '.travel h4': 'performingTraveling'
+    };
+
+    for (const [selector, key] of Object.entries(aboutElements)) {
+        const element = document.querySelector(selector);
+        if (element) {
+            const enSpan = element.querySelector('.en');
+            const zhSpan = element.querySelector('.zh');
+            if (enSpan && zhSpan) {
+                enSpan.style.display = lang === 'en' ? '' : 'none';
+                zhSpan.style.display = lang === 'zh' ? '' : 'none';
+            }
+        }
+    }
 }
 
 // 平滑滚动
