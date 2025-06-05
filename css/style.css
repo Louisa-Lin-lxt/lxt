@@ -368,4 +368,8 @@ footer {
         align-items: center;
         gap: 1rem;
     }
+}
+
+.welcome-text, .nav-link, .portfolio-title, .about h2, .more-about h3, .column h4, .blessing, .blessing-zh {
+    color: #fff !important;
 } 

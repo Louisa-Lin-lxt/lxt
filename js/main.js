@@ -129,4 +129,8 @@ window.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.current-lang').textContent = 'EN';
     updateContent('en');
     document.body.style.fontFamily = "'Big Caslon', serif";
+    // 导航栏全部英文
+    document.querySelectorAll('.nav-link')[0].textContent = 'Home';
+    document.querySelectorAll('.nav-link')[1].textContent = 'About Me';
+    document.querySelectorAll('.nav-link')[2].textContent = 'Contact';
 }); 
