@@ -76,7 +76,7 @@ function updateContent(lang) {
             element.style.fontFamily = "'Times New Roman', serif";
         } else if (element.classList.contains('zh')) {
             element.style.display = lang === 'zh' ? '' : 'none';
-            element.style.fontFamily = "'SimSun', serif";
+            element.style.fontFamily = "'SimHei', '黑体', sans-serif";
         }
     });
 
@@ -87,11 +87,11 @@ function updateContent(lang) {
         blessingEn.style.display = lang === 'en' ? '' : 'none';
         blessingZh.style.display = lang === 'zh' ? '' : 'none';
         blessingEn.style.fontFamily = "'Times New Roman', serif";
-        blessingZh.style.fontFamily = "'SimSun', serif";
+        blessingZh.style.fontFamily = "'SimHei', '黑体', sans-serif";
     }
 
     // 更新字体
-    document.body.style.fontFamily = lang === 'en' ? "'Times New Roman', serif" : "'SimSun', serif";
+    document.body.style.fontFamily = lang === 'en' ? "'Times New Roman', serif" : "'SimHei', '黑体', sans-serif";
 }
 
 // 平滑滚动

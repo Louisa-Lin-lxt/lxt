@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: "Times New Roman", "SimSun", serif;
+  font-family: "Times New Roman", "SimHei", serif;
   background: url('../images/bg.jpg') no-repeat center center fixed;
   background-size: cover;
   background-attachment: fixed;
@@ -98,6 +98,9 @@ header nav, .navbar, .nav-container {
   border: 3px solid #fff;
   margin: 0 auto 1rem auto;
   display: block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 section {
@@ -234,11 +237,13 @@ footer {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  width: 100%;
 }
 
 .dog-description {
   text-align: center;
   width: 100%;
+  margin-top: 1rem;
 }
 
 @media (max-width: 1100px) {
@@ -326,10 +331,14 @@ footer {
   }
   .blessing, .blessing-zh {
     font-size: 24px !important;
-    font-family: 'Times New Roman', 'SimSun', serif;
+    font-family: 'Times New Roman', 'SimHei', serif;
   }
   .contact-item {
     font-size: 0.9rem;
     padding: 0.8rem;
   }
+}
+
+.zh {
+  font-family: "SimHei", "黑体", sans-serif !important;
 }
