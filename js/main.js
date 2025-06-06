@@ -57,71 +57,41 @@ function switchLanguage() {
 }
 
 function updateContent(lang) {
-    const elements = {
-        '.nav-link[href="#home"]': 'home',
-        '.nav-link[href="#portfolio"]': 'portfolio',
-        '.nav-link[href="#about"]': 'about',
-        '.nav-link[href="#contact"]': 'contact',
-        '.welcome-text': 'welcome',
-        '.world-text': 'world',
-        '.bio p': 'bio',
-        '#portfolio h2': 'gallery',
-        '#about h2': 'aboutMe',
-        '.more-about h3': 'moreAboutMe',
-        '.research h4': 'currentResearch',
-        '.dog h4': 'myDog',
-        '.travel h4': 'performingTraveling',
-        '.cv-download': 'downloadCV',
-        '.blessing': 'blessing'
-    };
-
-    for (const [selector, key] of Object.entries(elements)) {
-        const element = document.querySelector(selector);
-        if (element) {
-            if (selector === '.cv-download') {
-                element.innerHTML = `<i class="fas fa-download"></i> ${translations[lang][key]}`;
-            } else {
-                element.textContent = translations[lang][key];
-            }
+    // 更新导航栏
+    document.querySelectorAll('.nav-link').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === 'index.html') {
+            link.textContent = translations[lang].home;
+        } else if (href === 'about.html') {
+            link.textContent = translations[lang].about;
+        } else if (href === 'contact.html') {
+            link.textContent = translations[lang].contact;
         }
-    }
+    });
 
-    // 姓名
-    const nameEl = document.querySelector('.name');
-    if (nameEl) nameEl.textContent = translations[lang].name;
-    // 祝福语
+    // 更新所有带有 en/zh 类的元素
+    document.querySelectorAll('.en, .zh').forEach(element => {
+        if (element.classList.contains('en')) {
+            element.style.display = lang === 'en' ? '' : 'none';
+            element.style.fontFamily = "'Times New Roman', serif";
+        } else if (element.classList.contains('zh')) {
+            element.style.display = lang === 'zh' ? '' : 'none';
+            element.style.fontFamily = "'SimSun', serif";
+        }
+    });
+
+    // 更新祝福语
     const blessingEn = document.querySelector('.blessing');
     const blessingZh = document.querySelector('.blessing-zh');
     if (blessingEn && blessingZh) {
-        blessingEn.style.display = translations[lang].showEnBlessing ? '' : 'none';
-        blessingZh.style.display = translations[lang].showZhBlessing ? '' : 'none';
-        blessingEn.textContent = translations['en'].blessing;
-        blessingZh.textContent = translations['zh'].blessing;
+        blessingEn.style.display = lang === 'en' ? '' : 'none';
+        blessingZh.style.display = lang === 'zh' ? '' : 'none';
+        blessingEn.style.fontFamily = "'Times New Roman', serif";
+        blessingZh.style.fontFamily = "'SimSun', serif";
     }
 
-    // 切换 about.html 中的内容
-    const aboutElements = {
-        '.about-name': 'name',
-        '.about-school': 'school',
-        '.about-year': 'year',
-        '.about-major': 'major',
-        '.cv-download': 'downloadCV',
-        '.research-title': 'currentResearch',
-        '.dog h4': 'myDog',
-        '.travel h4': 'performingTraveling'
-    };
-
-    for (const [selector, key] of Object.entries(aboutElements)) {
-        const element = document.querySelector(selector);
-        if (element) {
-            const enSpan = element.querySelector('.en');
-            const zhSpan = element.querySelector('.zh');
-            if (enSpan && zhSpan) {
-                enSpan.style.display = lang === 'en' ? '' : 'none';
-                zhSpan.style.display = lang === 'zh' ? '' : 'none';
-            }
-        }
-    }
+    // 更新字体
+    document.body.style.fontFamily = lang === 'en' ? "'Times New Roman', serif" : "'SimSun', serif";
 }
 
 // 平滑滚动
@@ -147,14 +117,11 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// 页面加载时根据 localStorage 设置语言
+// 页面加载时初始化语言
 window.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('language') || 'en';
+    currentLang = savedLang;
     document.documentElement.lang = currentLang;
     document.querySelector('.current-lang').textContent = currentLang === 'en' ? 'EN' : '中';
     updateContent(currentLang);
-    document.body.style.fontFamily = currentLang === 'en' ? "'Big Caslon', serif" : "'SimHei', serif";
-    // 导航栏根据当前语言设置
-    document.querySelectorAll('.nav-link')[0].textContent = translations[currentLang].home;
-    document.querySelectorAll('.nav-link')[1].textContent = translations[currentLang].about;
-    document.querySelectorAll('.nav-link')[2].textContent = translations[currentLang].contact;
 }); 
