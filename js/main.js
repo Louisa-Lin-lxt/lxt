@@ -1,127 +1,28 @@
-// 语言切换功能
-const translations = {
-    en: {
-        home: 'Home',
-        portfolio: 'Portfolio',
-        about: 'About Me',
-        contact: 'Contact',
-        welcome: 'Hi, welcome to',
-        world: "'s world...",
-        bio: "Hi! Welcome to my channel! I'm Xingtong Lin (you can call me Louisa), a freshman studying at Carnegie Mellon University, a musician (non-professional type), a traveler, and an animal lover. I really relish the process of exploring what I love and passionate about, building up my own academic skills, solving problems for a more glamorous world.",
-        gallery: 'Gallery',
-        aboutMe: 'About Me',
-        moreAboutMe: 'More About Me',
-        currentResearch: 'Current Research',
-        myDog: 'My Dog',
-        performingTraveling: 'Photo Dump',
-        downloadCV: 'Download CV',
-        blessing: 'May your future be filled with endless possibilities',
-        name: 'Xingtong Lin',
-        showZhBlessing: false,
-        showEnBlessing: true
-    },
-    zh: {
-        home: '首页',
-        portfolio: '作品集',
-        about: '关于我',
-        contact: '联系方式',
-        welcome: '你好，欢迎来到',
-        world: '的世界...',
-        bio: '我是卡内基梅隆大学的大一学生，一个非专业音乐家，旅行家和动物爱好者。探索我所热爱的事物，建立自己的学术技能，励志创造一个更美好的世界。',
-        gallery: '作品展示',
-        aboutMe: '关于我',
-        moreAboutMe: '更多关于我',
-        currentResearch: '当前研究',
-        myDog: '我的狗狗',
-        performingTraveling: '照片轰炸',
-        downloadCV: '下载简历',
-        blessing: '愿你得偿所愿',
-        name: '林星潼',
-        showZhBlessing: true,
-        showEnBlessing: false
+function setLang(lang) {
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.textContent = el.getAttribute(`data-${lang}`);
+  });
+  document.querySelectorAll('a[data-en]').forEach(el => {
+    el.textContent = el.getAttribute(`data-${lang}`);
+  });
+  // 按钮文字也切换
+  document.querySelectorAll('.btn').forEach(el => {
+    if (el.hasAttribute(`data-${lang}`)) {
+      el.textContent = el.getAttribute(`data-${lang}`);
     }
-};
-
-let currentLang = localStorage.getItem('language') || 'en';
-
-document.documentElement.lang = currentLang;
-
-function switchLanguage() {
-    currentLang = currentLang === 'en' ? 'zh' : 'en';
-    localStorage.setItem('language', currentLang);
-    document.documentElement.lang = currentLang;
-    document.querySelector('.current-lang').textContent = currentLang === 'en' ? 'EN' : '中';
-    updateContent(currentLang);
-    // 切换字体
-    document.body.style.fontFamily = currentLang === 'en' ? "'Big Caslon', serif" : "'SimHei', serif";
+  });
 }
 
-function updateContent(lang) {
-    // 更新导航栏
-    document.querySelectorAll('.nav-link').forEach(link => {
-        const href = link.getAttribute('href');
-        if (href === 'index.html') {
-            link.textContent = translations[lang].home;
-        } else if (href === 'about.html') {
-            link.textContent = translations[lang].about;
-        } else if (href === 'contact.html') {
-            link.textContent = translations[lang].contact;
-        }
-    });
+document.getElementById('en-btn')?.addEventListener('click', () => setLang('en'));
+document.getElementById('zh-btn')?.addEventListener('click', () => setLang('zh'));
 
-    // 更新所有带有 en/zh 类的元素
-    document.querySelectorAll('.en, .zh').forEach(element => {
-        if (element.classList.contains('en')) {
-            element.style.display = lang === 'en' ? '' : 'none';
-            element.style.fontFamily = "'Times New Roman', serif";
-        } else if (element.classList.contains('zh')) {
-            element.style.display = lang === 'zh' ? '' : 'none';
-            element.style.fontFamily = "'SimHei', '黑体', sans-serif";
-        }
-    });
+// 默认英文
+setLang('en');
 
-    // 更新祝福语
-    const blessingEn = document.querySelector('.blessing');
-    const blessingZh = document.querySelector('.blessing-zh');
-    if (blessingEn && blessingZh) {
-        blessingEn.style.display = lang === 'en' ? '' : 'none';
-        blessingZh.style.display = lang === 'zh' ? '' : 'none';
-        blessingEn.style.fontFamily = "'Times New Roman', serif";
-        blessingZh.style.fontFamily = "'SimHei', '黑体', sans-serif";
-    }
-
-    // 更新字体
-    document.body.style.fontFamily = lang === 'en' ? "'Times New Roman', serif" : "'SimHei', '黑体', sans-serif";
-}
-
-// 平滑滚动
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-// 导航栏滚动效果
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('header');
-    if (window.scrollY > 50) {
-        header.style.background = 'rgba(255, 255, 255, 0.95)';
-    } else {
-        header.style.background = 'rgba(255, 255, 255, 0.8)';
-    }
-});
-
-// 页面加载时初始化语言
-window.addEventListener('DOMContentLoaded', () => {
-    const savedLang = localStorage.getItem('language') || 'en';
-    currentLang = savedLang;
-    document.documentElement.lang = currentLang;
-    document.querySelector('.current-lang').textContent = currentLang === 'en' ? 'EN' : '中';
-    updateContent(currentLang);
-}); 
+// 头像占位符显示逻辑
+const avatarImg = document.querySelector('.avatar img');
+const avatarPlaceholder = document.querySelector('.avatar-placeholder');
+if (avatarImg && avatarPlaceholder) {
+  avatarImg.onload = () => { avatarPlaceholder.style.display = 'none'; };
+  avatarImg.onerror = () => { avatarPlaceholder.style.display = 'block'; };
+} 
